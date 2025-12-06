@@ -6,7 +6,8 @@ import icon from "../assets/icon.png";
 const Header = () => {
   return (
     <header
-      className="bg-zinc-950 w-full text-zinc-400 p-4 border-b-zinc-700 border-b-2"
+      className="bg-background-primary w-full text-text-secondary p-4 border-b-border-primary 
+      border-b-2"
       onKeyDown={async (e) => {
         if (e.key == "p") {
           console.log("a");
@@ -14,27 +15,25 @@ const Header = () => {
         }
       }}
     >
-      <div className="flex w-full zinc-100">
-        <div className="flex gap-2">
-          <div className="flex gap-4 items-center">
-            <div className="max-w-10 rounded-md">
-              <img src={icon} className="rounded-lg" />
-            </div>
-            <div className="">
-              <h1 className="text-zinc-100 text-md font-bold">Synapse Hub</h1>
-              <span>AI Hub</span>
-            </div>
+      <div className="flex w-full">
+        <div className="flex gap-4 items-center">
+          <div className="max-w-10 rounded-md">
+            <img src={icon} className="rounded-lg" />
+          </div>
+          <div className="">
+            <h1 className="text-text-primary text-md font-bold">Synapse Hub</h1>
+            <span className="text-sm text-text-secondary">AI Hub</span>
           </div>
         </div>
         <div className="flex flex-1 justify-center ">
           <div
-            className="flex border-2 max-w-[500px] w-full border-zinc-700
-            rounded-xl items-center bg-zinc-900"
+            className="flex border-2 max-w-[500px] w-full border-border-primary
+            rounded-xl items-center bg-background-secondary"
           >
             <IoSearchOutline className="mx-2 text-2xl" />
             <input
               placeholder="search AI"
-              className="outline-none w-full text-zinc-100"
+              className="outline-none w-full text-text-primary"
             />
           </div>
         </div>

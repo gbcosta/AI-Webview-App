@@ -3,7 +3,7 @@ import Header from "./components/header";
 
 function App() {
   return (
-    <main className="h-screen bg-zinc-950">
+    <main className="h-screen bg-background-primary">
       <Header />
     </main>
   );
