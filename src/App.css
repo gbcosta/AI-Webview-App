@@ -2,8 +2,17 @@
 
 @theme {
   --color-background-primary: #09090b;
-  --color-background-secondary: #18181b;
+  --color-background-secondary: #121212;
   --color-text-primary: #f4f4f5;
   --color-text-secondary: #a1a1aa;
   --color-border-primary: #27272a;
+
+  --text-tiny: 0.625rem;
+
+  --color-gemini: linear-gradient(
+    90deg,
+    rgba(134, 26, 217, 1) 0%,
+    rgba(177, 87, 199, 1) 50%,
+    rgba(237, 83, 145, 1) 100%
+  );
 }
