@@ -13,7 +13,15 @@ const Tag = ({ children }: { children: string }) => {
   );
 };
 
-const AiCards = () => {
+const AiCards = ({
+  tag,
+  name,
+  content,
+}: {
+  tag: string;
+  name: string;
+  content: string;
+}) => {
   return (
     <div
       className="flex  h-full w-full p-3 
@@ -28,12 +36,12 @@ const AiCards = () => {
           </div>
         </div>
         <span className="text-lg font-bold text-text-primary text-md">
-          Google Gemini
+          {name}
         </span>
         <p className="text-[0.8rem] text-text-secondary flex flex-1">
-          A IA multimodal mais avançada do Google para raciocínio e criação.
+          {content}
         </p>
-        <Tag>CHAT</Tag>
+        <Tag>{tag.toUpperCase()}</Tag>
       </div>
       <div className="flex flex-1 justify-end">
         <FaExternalLinkAlt
