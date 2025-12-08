@@ -13,10 +13,10 @@ const Tag = ({ children }: { children: string }) => {
   );
 };
 
-const CategoryCards = () => {
+const AiCards = () => {
   return (
     <div
-      className="flex max-w-[250px] max-h-[200px] h-full w-full p-3 
+      className="flex  h-full w-full p-3 
     bg-background-secondary rounded-lg border-border-primary border-2
     hover:-translate-y-2 transition-all duration-300 cursor-pointer group
     hover:bg-zinc-900"
@@ -35,7 +35,7 @@ const CategoryCards = () => {
         </p>
         <Tag>CHAT</Tag>
       </div>
-      <div className="flex">
+      <div className="flex flex-1 justify-end">
         <FaExternalLinkAlt
           className="text-zinc-700 text-sm group-hover:text-text-primary
           transition-all"
@@ -45,4 +45,4 @@ const CategoryCards = () => {
   );
 };
 
-export default CategoryCards;
+export default AiCards;
