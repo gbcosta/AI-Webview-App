@@ -2,6 +2,7 @@ import CategoryFilter from "./categoryFilter";
 import CategoryInfos from "./categoryInfos";
 import AiCards from "./AiCards";
 import { ais } from "../config/ais.json";
+import { BorderColor } from "../config/borderColor";
 
 const MainContent = () => {
   return (
@@ -12,7 +13,15 @@ const MainContent = () => {
       </div>
       <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-5">
         {ais.map((ai) => {
-          return <AiCards name={ai.name} content={ai.content} tag={ai.tag} />;
+          return (
+            <AiCards
+              name={ai.name}
+              content={ai.content}
+              tag={ai.tag}
+              color={ai.color as BorderColor}
+              link={ai.link}
+            />
+          );
         })}
       </div>
     </div>
