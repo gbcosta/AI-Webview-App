@@ -14,7 +14,7 @@ export const gradients = {
   orange: "from-orange-400 via-red-400 to-orange-400",
   purple: "from-purple-600  to-purple-400",
   red: "from-pink-400  to-red-500",
-  slate: "from-slate-400  to-slate-500",
+  slate: "from-slate-600  to-slate-700",
   yellow: "from-yellow-400  to-orange-700",
   sky: "from-sky-400  to-sky-700",
 };

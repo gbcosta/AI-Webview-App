@@ -18,7 +18,7 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://gemini.google.com/ *.google.com; connect-src 'self' https://gemini.google.com/ *.google.com; style-src 'self' 'unsafe-inline' https://gemini.google.com/ *.google.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://gemini.google.com/ *.google.com;"
+      "csp": null
     }
   },
   "bundle": {
