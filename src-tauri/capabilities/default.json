@@ -8,7 +8,7 @@
     "core:webview:allow-set-webview-zoom",
     "shell:default",
     "deep-link:default",
-    "process:default"
+    "process:default",
+    "core:window:allow-set-theme"
   ]
 }
-

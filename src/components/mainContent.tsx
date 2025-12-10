@@ -35,12 +35,15 @@ const MainContent = () => {
   }, [activeTagContext.tag, searchbarValueContext.value]);
 
   return (
-    <div className="p-6 flex flex-col gap-6">
-      <div>
+    <div className="p-6 flex flex-col gap-4 overflow-hidden">
+      <div className="flex flex-col gap-4">
         <CategoryFilter />
         <CategoryInfos toolsFinded={aisByFilter.length} />
       </div>
-      <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-5">
+      <div
+        className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-4
+        grid-cols-1 gap-5 overflow-scroll py-4 px-4"
+      >
         {aisByFilter.map((ai, key) => {
           return (
             <AiCards

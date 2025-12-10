@@ -5,14 +5,14 @@ import MainContent from "./mainContent";
 
 const Home = () => {
   return (
-    <main className="min-h-screen bg-background-primary select-none">
-      <ActiveTagProvider>
-        <SearchbarValueProvider>
+    <ActiveTagProvider>
+      <SearchbarValueProvider>
+        <div className="flex flex-col h-screen bg-background-primary select-none">
           <Header />
           <MainContent />
-        </SearchbarValueProvider>
-      </ActiveTagProvider>
-    </main>
+        </div>
+      </SearchbarValueProvider>
+    </ActiveTagProvider>
   );
 };
 

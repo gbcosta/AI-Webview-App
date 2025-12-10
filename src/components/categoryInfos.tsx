@@ -2,7 +2,7 @@ import { FiLayout } from "react-icons/fi";
 
 const CategoryInfos = ({ toolsFinded }: { toolsFinded: number }) => {
   return (
-    <div className="flex w-full mt-10">
+    <div className="flex w-full">
       <div className="flex gap-4">
         <FiLayout className="text-2xl text-indigo-500" />
         <span className="text-text-primary font-bold text-lg">All Tools </span>

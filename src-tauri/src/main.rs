@@ -6,9 +6,7 @@ fn main() {
         .plugin(tauri_plugin_process::init())
         .setup(|app| {
             let menu = MenuBuilder::new(app).text("restart", "Restart").build()?;
-
             app.set_menu(menu)?;
-
             app.on_menu_event(move |app_handle: &tauri::AppHandle, event| {
                 println!("menu event: {:?}", event.id());
 
