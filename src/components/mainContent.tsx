@@ -4,6 +4,7 @@ import AiCards from "./AiCards";
 import { ais } from "../config/ais.json";
 import { BorderColor } from "../config/borderColor";
 import { useEffect, useState } from "react";
+import { Tag } from "../config/tagType";
 
 const MainContent = () => {
   const [tag, setTag] = useState("all");
@@ -30,7 +31,7 @@ const MainContent = () => {
               key={key}
               name={ai.name}
               content={ai.content}
-              tag={ai.tag}
+              tag={ai.tag as Tag}
               color={ai.color as BorderColor}
               link={ai.link}
             />
