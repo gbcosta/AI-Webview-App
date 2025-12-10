@@ -5,14 +5,14 @@ fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_process::init())
         .setup(|app| {
-            let menu = MenuBuilder::new(app).text("restart", "Restart").build()?;
+            let menu = MenuBuilder::new(app).text("home", "Home").build()?;
             app.set_menu(menu)?;
             app.on_menu_event(move |app_handle: &tauri::AppHandle, event| {
                 println!("menu event: {:?}", event.id());
 
                 match event.id().0.as_str() {
-                    "restart" => {
-                        println!("restart event");
+                    "home" => {
+                        println!("home event");
                         app_handle.restart();
                     }
                     _ => {
