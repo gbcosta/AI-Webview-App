@@ -1,10 +1,21 @@
-const CategoryButton = ({ name }: { name: string }) => {
+import { Tag } from "../config/tagType";
+import { useActiveTag } from "../contexts/useActiveTag";
+
+const CategoryButton = ({ tag }: { tag: Tag }) => {
+  const TagContext = useActiveTag();
+  const buttonIsActive =
+    TagContext.tag != tag
+      ? `hover:bg-zinc-800 border-border-primary 
+    text-text-primary bg-background-secondary`
+      : "bg-zinc-200 text-zinc-950";
   return (
     <div
-      className="text-text-primary bg-background-secondary border-2
-        border-border-primary px-6 py-2 rounded-3xl cursor-pointer hover:bg-zinc-800"
+      className={`border-2 px-6 py-2 rounded-3xl cursor-pointer ${buttonIsActive}`}
+      onClick={() => {
+        TagContext.changeActiveTag(tag);
+      }}
     >
-      {name}
+      {tag}
     </div>
   );
 };

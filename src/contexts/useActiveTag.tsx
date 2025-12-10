@@ -17,14 +17,14 @@ export const ActiveTagProvider = ({
 }: {
   children: ReactNode[] | ReactNode;
 }) => {
-  const [tag, setTag] = useState<Tag>("all");
+  const [tag, setTag] = useState<Tag>("All");
   const changeActiveTag = (tagName: Tag) => {
     setTag(tagName);
   };
 
   const getActiveTag = () => tag;
 
-  const resetTag = () => setTag("all");
+  const resetTag = () => setTag("All");
 
   const contextValue = {
     tag,

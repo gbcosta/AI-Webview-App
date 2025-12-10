@@ -3,35 +3,35 @@
     {
       "name": "Google Gemini",
       "content": "A IA multimodal mais avançada do Google para raciocínio e criação.",
-      "tag": "chat",
+      "tag": "Chat",
       "color": "blue",
       "link": "https://gemini.google.com"
     },
     {
       "name": "ChatGPT",
       "content": "O chatbot pioneiro da OpenAI, excelente para conversa e textos.",
-      "tag": "chat",
+      "tag": "Chat",
       "color": "green",
       "link": "https://chatgpt.com/"
     },
     {
       "name": "Claude AI",
       "content": "A IA multimodal mais avançada do Google para raciocínio e criação.",
-      "tag": "chat",
+      "tag": "Chat",
       "color": "orange",
       "link": "https://claude.ai"
     },
     {
       "name": "MidJourney",
       "content": "Geração de imagens artísticas de altíssima qualidade (via Discord/Web).",
-      "tag": "image & video",
+      "tag": "Image & Video",
       "color": "purple",
       "link": "https://www.midjourney.com/"
     },
     {
       "name": "Github Copilor",
       "content": "Seu par programador de IA integrado ao fluxo de trabalho.",
-      "tag": "dev & code",
+      "tag": "Dev & Code",
       "color": "slate",
       "link": "https://github.com/features/copilot"
     },
@@ -45,7 +45,7 @@
     {
       "name": "Leonardo.ai",
       "content": "Criação de assets de jogos com controle refinado.",
-      "tag": "image & video",
+      "tag": "Image & Video",
       "color": "red",
       "link": "https://leonardo.ai/"
     },

@@ -1,6 +1,6 @@
 import { FiLayout } from "react-icons/fi";
 
-const CategoryInfos = () => {
+const CategoryInfos = ({ toolsFinded }: { toolsFinded: number }) => {
   return (
     <div className="flex w-full mt-10">
       <div className="flex gap-4">
@@ -12,7 +12,7 @@ const CategoryInfos = () => {
           className="bg-background-secondary text-text-secondary px-3
           py-1 rounded-lg border-border-primary border-2"
         >
-          Tools
+          {toolsFinded} Tools
         </span>
       </div>
     </div>

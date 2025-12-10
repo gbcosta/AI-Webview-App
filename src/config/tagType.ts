@@ -1,6 +1,6 @@
 export type Tag =
-  | "all"
-  | "chat"
-  | "image & video"
-  | "dev & code"
-  | "productivity";
+  | "All"
+  | "Chat"
+  | "Image & Video"
+  | "Dev & Code"
+  | "Productivity";
