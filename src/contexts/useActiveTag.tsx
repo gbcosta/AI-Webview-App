@@ -1,9 +1,10 @@
 import { createContext, useState, ReactNode, useContext } from "react";
+import { Tag } from "../config/tagType";
 
 interface activeTagContextType {
-  tag: string;
-  changeActiveTag: (tagName: string) => void;
-  getActiveTag: () => string;
+  tag: Tag;
+  changeActiveTag: (tagName: Tag) => void;
+  getActiveTag: () => Tag;
   resetTag: () => void;
 }
 
@@ -16,14 +17,14 @@ export const ActiveTagProvider = ({
 }: {
   children: ReactNode[] | ReactNode;
 }) => {
-  const [tag, setTag] = useState<string>("");
-  const changeActiveTag = (tagName: string) => {
+  const [tag, setTag] = useState<Tag>("all");
+  const changeActiveTag = (tagName: Tag) => {
     setTag(tagName);
   };
 
   const getActiveTag = () => tag;
 
-  const resetTag = () => setTag("");
+  const resetTag = () => setTag("all");
 
   const contextValue = {
     tag,
