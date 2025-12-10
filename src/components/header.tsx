@@ -2,8 +2,11 @@ import { IoSearchOutline } from "react-icons/io5";
 import { CiSettings } from "react-icons/ci";
 //import { getCurrentWebview } from "@tauri-apps/api/webview";
 import icon from "../assets/icon.png";
+import { useSearchbarValue } from "../contexts/useSerchbarValue.tsx";
+import { ChangeEvent } from "react";
 
 const Header = () => {
+  const searchbarValueContext = useSearchbarValue();
   return (
     <header
       className="bg-background-primary w-full text-text-secondary p-4 border-b-border-primary 
@@ -34,6 +37,10 @@ const Header = () => {
             <input
               placeholder="search AI"
               className="outline-none w-full text-text-primary"
+              value={searchbarValueContext.value}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                searchbarValueContext.changeValue(e.target.value);
+              }}
             />
           </div>
         </div>

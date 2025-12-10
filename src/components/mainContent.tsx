@@ -6,18 +6,33 @@ import { Tag } from "../config/tagType";
 import { ais } from "../config/ais.json";
 import { useEffect, useState } from "react";
 import { useActiveTag } from "../contexts/useActiveTag";
+import { useSearchbarValue } from "../contexts/useSerchbarValue";
 
 const MainContent = () => {
   const [aisByFilter, setAisByFilter] = useState(ais);
-
+  const searchbarValueContext = useSearchbarValue();
   const activeTagContext = useActiveTag();
-  useEffect(() => {
+
+  const handleFiltersChange = () => {
     setAisByFilter(
-      ais.filter((e) => {
-        return e.tag == activeTagContext.tag || activeTagContext.tag == "All";
-      }),
+      ais
+        .filter((e) => {
+          return e.tag == activeTagContext.tag || activeTagContext.tag == "All";
+        })
+        .filter((e) => {
+          return (
+            e.name
+              .toLowerCase()
+              .includes(searchbarValueContext.value.toLowerCase()) ||
+            searchbarValueContext.value == ""
+          );
+        }),
     );
-  }, [activeTagContext.tag]);
+  };
+
+  useEffect(() => {
+    handleFiltersChange();
+  }, [activeTagContext.tag, searchbarValueContext.value]);
 
   return (
     <div className="p-6 flex flex-col gap-6">
