@@ -1,6 +1,7 @@
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { IoChatbubbleOutline } from "react-icons/io5";
 import { BorderColor, gradients } from "../config/borderColor";
+import { Tag as TagType } from "../config/tagType";
+import { getIcon } from "../config/getIcon";
 
 const Tag = ({ children }: { children: string }) => {
   return (
@@ -13,20 +14,15 @@ const Tag = ({ children }: { children: string }) => {
     </span>
   );
 };
-
-const AiCards = ({
-  tag,
-  name,
-  content,
-  color,
-  link,
-}: {
+interface AiCardsProps {
   tag: string;
   name: string;
   content: string;
   color: BorderColor;
   link: string;
-}) => {
+}
+const AiCards = ({ tag, name, content, color, link }: AiCardsProps) => {
+  const Icon = getIcon(tag as TagType);
   return (
     <div
       className="flex  h-full w-full p-3 
@@ -40,7 +36,7 @@ const AiCards = ({
       <div className="flex flex-col items-start gap-2">
         <div className={`bg-linear-to-tl p-0.5 rounded-lg ${gradients[color]}`}>
           <div className="relative text-white bg-black text-xl p-2 rounded-lg flex">
-            <IoChatbubbleOutline className="" />
+            <Icon />
           </div>
         </div>
         <span className="text-lg font-bold text-text-primary text-md">
