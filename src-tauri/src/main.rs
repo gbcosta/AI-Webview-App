@@ -1,9 +1,15 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 use tauri::menu::MenuBuilder;
+use tauri_plugin_fs::FsExt;
 
 fn main() {
     tauri::Builder::default()
-        .plugin(tauri_plugin_process::init())
+        .plugin(tauri_plugin_fs::init())
+        .setup(|app| {
+            let scope = app.fs_scope();
+            scope.allow_directory("./", false).unwrap();
+            Ok(())
+        })
         .setup(|app| {
             let menu = MenuBuilder::new(app).text("home", "Home").build()?;
             app.set_menu(menu)?;

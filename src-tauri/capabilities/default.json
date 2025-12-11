@@ -9,6 +9,15 @@
     "shell:default",
     "deep-link:default",
     "process:default",
-    "core:window:allow-set-theme"
+    "core:window:allow-set-theme",
+    "fs:default",
+    {
+      "identifier": "fs:allow-create",
+      "allow": ["$APPDATA/**/*"]
+    },
+    {
+      "identifier": "fs:allow-app-write",
+      "allow": ["$APPDATA/**/*"]
+    }
   ]
 }

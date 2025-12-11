@@ -2,9 +2,15 @@ import { IoSearchOutline } from "react-icons/io5";
 import { CiSettings } from "react-icons/ci";
 import icon from "../assets/icon.png";
 import { useSearchbarValue } from "../contexts/useSerchbarValue.tsx";
-import { ChangeEvent } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
-const Header = () => {
+const Header = ({
+  isSettingsMenuActive,
+  setIsSettingsMenuActive,
+}: {
+  isSettingsMenuActive: boolean;
+  setIsSettingsMenuActive: Dispatch<SetStateAction<boolean>>;
+}) => {
   return (
     <header
       className="bg-background-primary w-full text-text-secondary p-4
@@ -13,7 +19,14 @@ const Header = () => {
       <div className="flex w-full">
         <SynapseLogo />
         <Searchbar />
-        <SettingsButton />
+        <div
+          className="flex items-center text-3xl cursor-pointer hover:text-zinc-100"
+          onClick={() => {
+            setIsSettingsMenuActive(true);
+          }}
+        >
+          <CiSettings />
+        </div>
       </div>
     </header>
   );
@@ -51,14 +64,6 @@ const SynapseLogo = () => {
         <h1 className="text-text-primary text-md font-bold">Synapse Hub</h1>
         <span className="text-sm text-text-secondary">AI Hub</span>
       </div>
-    </div>
-  );
-};
-
-const SettingsButton = () => {
-  return (
-    <div className="flex items-center text-3xl cursor-pointer hover:text-zinc-100">
-      <CiSettings />
     </div>
   );
 };
