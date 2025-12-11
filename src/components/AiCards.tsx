@@ -14,6 +14,7 @@ const Tag = ({ children }: { children: string }) => {
     </span>
   );
 };
+
 interface AiCardsProps {
   tag: string;
   name: string;
@@ -21,6 +22,7 @@ interface AiCardsProps {
   color: BorderColor;
   link: string;
 }
+
 const AiCards = ({ tag, name, content, color, link }: AiCardsProps) => {
   const Icon = getIcon(tag as TagType);
   return (
