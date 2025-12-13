@@ -3,11 +3,10 @@ import { ActiveTagProvider } from "../contexts/useActiveTag";
 import { SearchbarValueProvider } from "../contexts/useSerchbarValue";
 import Header from "./header";
 import MainContent from "./mainContent";
-import SettingsMenu from "./settingsMenu";
+import SettingsMenu from "./settingsMenu/settingsMenu";
 
 const Home = () => {
   const [isSettingsMenuActive, setIsSettingsMenuActive] = useState(false);
-
   const isHomeHidden = !isSettingsMenuActive ? "flex" : "hidden";
   return (
     <ActiveTagProvider>
