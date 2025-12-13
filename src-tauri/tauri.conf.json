@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "ai-webview-app",
+  "productName": "Synapse Hub",
   "version": "0.1.0",
-  "identifier": "com.gabriel.ai-webview-app",
+  "identifier": "synapse-hub",
   "build": {
     "beforeDevCommand": "bun run dev",
     "devUrl": "http://localhost:1420",
@@ -12,10 +12,9 @@
   "app": {
     "windows": [
       {
-        "title": "ai-webview-app",
+        "title": "Synapse Hub",
         "width": 800,
-        "height": 600,
-        "theme": "Dark"
+        "height": 600
       }
     ],
     "security": {

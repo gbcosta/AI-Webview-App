@@ -35,7 +35,6 @@ export const View = ({
                   theme: e.target.value,
                 },
               });
-
               getCurrentWindow().setTheme(e.target.value as Theme);
             }}
           >
