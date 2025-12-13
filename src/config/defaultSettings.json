@@ -1,4 +1,6 @@
 {
-  "theme": "light",
-  "zoom": 1
+  "view": {
+    "theme": "light",
+    "zoom": 1
+  }
 }

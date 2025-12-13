@@ -7,23 +7,24 @@ import SettingsMenu from "./settingsMenu";
 
 const Home = () => {
   const [isSettingsMenuActive, setIsSettingsMenuActive] = useState(false);
+
+  const isHomeHidden = !isSettingsMenuActive ? "flex" : "hidden";
   return (
     <ActiveTagProvider>
       <SearchbarValueProvider>
-        {!isSettingsMenuActive ? (
-          <div className="flex flex-col h-screen bg-background-primary select-none">
-            <Header
-              isSettingsMenuActive={isSettingsMenuActive}
-              setIsSettingsMenuActive={setIsSettingsMenuActive}
-            />
-            <MainContent />
-          </div>
-        ) : (
-          <SettingsMenu
-            isActive={isSettingsMenuActive}
-            setIsActive={setIsSettingsMenuActive}
+        <div
+          className={`${isHomeHidden} flex-col h-screen bg-background-primary select-none `}
+        >
+          <Header
+            isSettingsMenuActive={isSettingsMenuActive}
+            setIsSettingsMenuActive={setIsSettingsMenuActive}
           />
-        )}
+          <MainContent />
+        </div>
+        <SettingsMenu
+          isActive={isSettingsMenuActive}
+          setIsActive={setIsSettingsMenuActive}
+        />
       </SearchbarValueProvider>
     </ActiveTagProvider>
   );

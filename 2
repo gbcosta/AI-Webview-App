@@ -9,6 +9,7 @@ import defaultSettings from "../config/defaultSettings.json";
 import { SettingsType } from "../config/settingsType";
 import { getCurrentWindow, Theme } from "@tauri-apps/api/window";
 import { getCurrentWebview } from "@tauri-apps/api/webview";
+import { IoMdClose } from "react-icons/io";
 
 const SettingsMenu = ({
   isActive,
@@ -19,7 +20,10 @@ const SettingsMenu = ({
 }) => {
   const [tabSelected, setTabSelected] = useState("View");
   const [settings, setSettings] = useState<SettingsType | undefined>(undefined);
-  const tabs = [{ name: "View", component: View }];
+  const tabs = [
+    { name: "View", component: View },
+    { name: "Test", component: View },
+  ];
 
   useEffect(() => {
     const readSettings = async () => {
@@ -64,6 +68,7 @@ const SettingsMenu = ({
       />
     );
   });
+
   const tabSettingsComponents = (settings: SettingsType) => {
     return tabs.map((tab, key) => {
       return tab.name == tabSelected ? (
@@ -77,14 +82,27 @@ const SettingsMenu = ({
       );
     });
   };
+
+  const isSettingsHidden = isActive ? "flex" : "hidden";
   return (
-    <div className="h-screen flex justify-center">
+    <div className={`${isSettingsHidden} h-screen justify-center`}>
       <div className="h-screen bg-background-primary grid grid-cols-12 grid-rows-12 w-7xl">
         <div className="border-r-2 border-border-primary col-span-4 row-span-12">
-          <ul className="flex flex-col">{tabsComponents}</ul>
+          <ul className="flex flex-col items-end justify-center">
+            {tabsComponents}
+          </ul>
         </div>
         <div className="col-span-8 row-span-12">
           {settings != undefined ? tabSettingsComponents(settings) : <></>}
+        </div>
+        <div
+          className="text-white fixed top-0 right-0 mt-5 mr-10 text-2xl
+          cursor-pointer hover:text-zinc-400"
+          onClick={() => {
+            setIsActive(false);
+          }}
+        >
+          <IoMdClose />
         </div>
       </div>
     </div>
@@ -98,62 +116,66 @@ const View = ({
   settings: SettingsType;
   setSettings: Dispatch<SetStateAction<SettingsType | undefined>>;
 }) => {
-  const [zoomInputValue, setZoomInputValue] = useState<string>(
-    settings.zoom.toString(),
-  );
-
-  const [themeSelectValue, setThemeSelectValue] = useState<string>(
-    settings.theme,
-  );
+  const [viewSettins, setViewSettings] = useState<{
+    theme: string;
+    zoom: string;
+  }>({
+    zoom: settings.zoom.toString(),
+    theme: settings.theme,
+  });
 
   return (
-    <div className="flex flex-col pl-4 pt-1 gap-2">
+    <div className="flex flex-col pl-4 pt-1 gap-2 h-screen overflow-auto">
       <h1 className="text-text-primary text-2xl font-bold">View</h1>
-      <div className="flex flex-col max-w-48">
-        <label className="text-text-primary">Theme</label>
-        <select
-          className="outline-none border-2 border-border-primary
+      <div className="flex flex-col max-w-48 gap-2">
+        <div className="flex flex-col w-full">
+          <label className="text-text-primary">Theme</label>
+          <select
+            className="outline-none border-2 border-border-primary
           rounded-md text-text-primary px-2 bg-none h-9 appearance-none"
-          value={themeSelectValue}
-          onChange={(e) => {
-            setThemeSelectValue(e.target.value);
-            setSettings({ ...settings, theme: e.target.value });
-          }}
-        >
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-        </select>
-        <label className="text-text-primary">Zoom</label>
-        <input
-          value={zoomInputValue}
-          className="outline-none border-2 border-border-primary
+            value={viewSettins.theme}
+            onChange={(e) => {
+              setViewSettings({ ...viewSettins, theme: e.target.value });
+              setSettings({ ...settings, theme: e.target.value });
+            }}
+          >
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+        <div className="flex flex-col w-full">
+          <label className="text-text-primary">Zoom</label>
+          <input
+            value={viewSettins.zoom}
+            className="outline-none border-2 border-border-primary
           rounded-md text-text-primary px-2 h-9"
-          onBlur={(e) => {
-            const newZoom = Number(e.target.value);
-            if (isNaN(newZoom)) {
-              setZoomInputValue("1");
+            onBlur={(e) => {
+              const newZoom = Number(e.target.value);
+              if (isNaN(newZoom)) {
+                setViewSettings({ ...viewSettins, zoom: "1" });
 
-              setSettings({ ...settings, zoom: 1 });
-              return;
-            }
-            if (newZoom < 0.25) {
-              setZoomInputValue("0.25");
-              setSettings({ ...settings, zoom: 0.25 });
-              return;
-            }
+                setSettings({ ...settings, zoom: 1 });
+                return;
+              }
+              if (newZoom < 0.25) {
+                setViewSettings({ ...viewSettins, zoom: "0.25" });
+                setSettings({ ...settings, zoom: 0.25 });
+                return;
+              }
 
-            if (newZoom > 2) {
-              setZoomInputValue("2");
-              setSettings({ ...settings, zoom: 2 });
-              return;
-            }
-            setZoomInputValue(e.target.value);
-            setSettings({ ...settings, zoom: newZoom });
-          }}
-          onChange={(e) => {
-            setZoomInputValue(e.target.value);
-          }}
-        />
+              if (newZoom > 2) {
+                setViewSettings({ ...viewSettins, zoom: "2" });
+                setSettings({ ...settings, zoom: 2 });
+                return;
+              }
+              setViewSettings({ ...viewSettins, zoom: e.target.value });
+              setSettings({ ...settings, zoom: newZoom });
+            }}
+            onChange={(e) => {
+              setViewSettings({ ...viewSettins, zoom: e.target.value });
+            }}
+          />
+        </div>
       </div>
     </div>
   );
@@ -168,12 +190,12 @@ const MenuTabItem = ({
   tabName: string;
   setTabSelected: Dispatch<SetStateAction<string>>;
 }) => {
-  const selected = "bg-zinc-200 text-zinc-950";
-  const notSelected = "hover:bg-border-primary";
+  const selected = "text-text-primary";
+  const notSelected = "hover:text-zinc-300 text-text-secondary";
   const isSelected = tabName == tabSelected ? selected : notSelected;
   return (
     <li
-      className={`text-text-secondary px-4 py-1 ${isSelected}`}
+      className={`px-4 py-1 cursor-pointer w-full text-end text-lg ${isSelected}`}
       onClick={() => {
         setTabSelected(tabName);
       }}
