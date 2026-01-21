@@ -1,10 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import {
-  create,
-  BaseDirectory,
-  readFile,
-  writeFile,
-} from "@tauri-apps/plugin-fs";
+import { BaseDirectory, readFile, writeFile } from "@tauri-apps/plugin-fs";
 import defaultSettings from "../../config/defaultSettings.json";
 import { SettingsType } from "../../config/settingsType";
 import { IoMdClose } from "react-icons/io";
@@ -31,14 +26,8 @@ const SettingsMenu = ({
           const _settings = JSON.parse(decoder.decode(file)) as SettingsType;
           setSettings(_settings);
         })
-        .catch(async (_) => {
-          const file = await create("settings.json", {
-            baseDir: BaseDirectory.AppData,
-          });
-          await file.write(
-            new TextEncoder().encode(JSON.stringify(defaultSettings)),
-          );
-          await file.close();
+        .catch(async () => {
+          setSettings(defaultSettings);
         });
     };
     readSettings();
