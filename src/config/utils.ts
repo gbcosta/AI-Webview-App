@@ -1,4 +1,4 @@
-export const getNumberinRange = (
+export const getNumberInRange = (
   n: number,
   data: { max: number; min: number; isNan: number },
 ) => {

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { SettingsType, ViewType } from "../../config/settingsType";
-import { getNumberinRange } from "../../config/utils";
+import { getNumberInRange } from "../../config/utils";
 import { getCurrentWindow, Theme } from "@tauri-apps/api/window";
 import { getCurrentWebview } from "@tauri-apps/api/webview";
 
@@ -15,6 +15,7 @@ export const View = ({
     ...settings.view,
     zoom: settings.view.zoom,
   });
+  const [zoom, setZoom] = useState(settings.view.zoom.toString());
 
   return (
     <div className="flex flex-col pl-4 pt-1 gap-2 h-screen overflow-auto">
@@ -45,11 +46,11 @@ export const View = ({
         <div className="flex flex-col w-full">
           <label className="text-text-primary">Zoom</label>
           <input
-            value={viewSettings.zoom}
+            value={zoom}
             className="outline-none border-2 border-border-primary
           rounded-md text-text-primary px-2 h-9"
             onBlur={(e) => {
-              const newZoom = getNumberinRange(Number(e.target.value), {
+              const newZoom = getNumberInRange(Number(e.target.value), {
                 min: 0.25,
                 max: 2,
                 isNan: 1,
@@ -57,6 +58,8 @@ export const View = ({
 
               getCurrentWebview().setZoom(newZoom);
               setViewSettings({ ...viewSettings, zoom: newZoom });
+              setZoom(newZoom.toString());
+
               setSettings({
                 ...settings,
                 view: {
@@ -66,10 +69,7 @@ export const View = ({
               });
             }}
             onChange={(e) => {
-              setViewSettings({
-                ...viewSettings,
-                zoom: Number(e.target.value),
-              });
+              setZoom(e.target.value);
             }}
           />
         </div>
