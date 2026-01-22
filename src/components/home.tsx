@@ -8,6 +8,7 @@ import SettingsMenu from "./settingsMenu/settingsMenu";
 const Home = () => {
   const [isSettingsMenuActive, setIsSettingsMenuActive] = useState(false);
   const isHomeHidden = !isSettingsMenuActive ? "flex" : "hidden";
+
   return (
     <ActiveTagProvider>
       <SearchbarValueProvider>

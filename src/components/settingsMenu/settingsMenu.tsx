@@ -4,6 +4,13 @@ import defaultSettings from "../../config/defaultSettings.json";
 import { SettingsType } from "../../config/settingsType";
 import { IoMdClose } from "react-icons/io";
 import { View } from "./view";
+import { getCurrentWebview } from "@tauri-apps/api/webview";
+import { getCurrentWindow, Theme } from "@tauri-apps/api/window";
+
+const initSettings = (settings: SettingsType) => {
+  getCurrentWebview().setZoom(settings.view.zoom);
+  getCurrentWindow().setTheme(settings.view.theme as Theme);
+};
 
 const SettingsMenu = ({
   isActive,
@@ -25,9 +32,11 @@ const SettingsMenu = ({
           const decoder = new TextDecoder("utf-8");
           const _settings = JSON.parse(decoder.decode(file)) as SettingsType;
           setSettings(_settings);
+          initSettings(_settings);
         })
         .catch(async () => {
           setSettings(defaultSettings);
+          initSettings(defaultSettings);
         });
     };
     readSettings();
