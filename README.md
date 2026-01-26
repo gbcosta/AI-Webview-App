@@ -28,4 +28,37 @@ To build this project, you need to have the following installed:
 2.  **Rust Toolchain:** [Install Rust](https://www.rust-lang.org/tools/install)
 3.  **System Dependencies:** Follow the [Tauri Setup Guide](https://tauri.app/v1/guides/getting-started/prerequisites) for your specific OS (Windows, macOS, or Linux).
 
+## 📂 Project Structure
 
+```text
+.
+├── src/                # React frontend source code
+│   ├── components/     # UI components (AI Cards, SearchBar, etc.)
+│   ├── config/         # Custom logic and state management
+│   ├── App.tsx         # Main application and WebView logic
+│   └── main.tsx        # React entry point
+├── src-tauri/          # Rust backend and Tauri configuration
+│   ├── src/            # Rust logic (Window management, Native APIs)
+│   ├── icons/          # Desktop application icons
+│   └── tauri.conf.json # Build settings and window permissions
+├── public/             # Static assets (logos, splash screens)
+├── tailwind.config.js  # Tailwind CSS styling configuration
+└── package.json        # Project dependencies and scripts
+```
+## 🤝 Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create.
+
+1. **Fork** the Project
+2. **Create** your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. **Commit** your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** to the Branch (`git push origin feature/AmazingFeature`)
+5. **Open** a Pull Request
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+**Developed with ❤️ by [Your Name]**
