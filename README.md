@@ -8,9 +8,7 @@
 
 * **All-in-One Dashboard:** Access ChatGPT, Claude, Gemini, MidJourney, and more from a single interface.
 * **High Performance:** Leveraging the power of **Tauri**, the app has a tiny footprint and consumes significantly less RAM than traditional browsers.
-* **One-Click Navigation:** Dedicated "Home" functionality to instantly switch between different AI models.
 * **Integrated Search:** Quickly find and launch specific AI tools through the built-in search bar.
-* **Native Feel:** A dark-themed, modern UI built with **Tailwind CSS** for a premium desktop experience.
 
 ## 🛠️ Tech Stack
 
