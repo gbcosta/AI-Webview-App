@@ -28,6 +28,26 @@ To build this project, you need to have the following installed:
 2.  **Rust Toolchain:** [Install Rust](https://www.rust-lang.org/tools/install)
 3.  **System Dependencies:** Follow the [Tauri Setup Guide](https://tauri.app/v1/guides/getting-started/prerequisites) for your specific OS (Windows, macOS, or Linux).
 
+### Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone [https://github.com/your-username/synapse-hub.git](https://github.com/your-username/synapse-hub.git)
+   cd synapse-hub
+   ```
+2. **Install Node dependencies**
+   ```bash
+   npm install
+   ```
+3. **Run in Development mode**
+   ```bash
+   npm run tauri dev
+   ```
+4. **Build the Application To generate a production executable (.exe, .app, or .deb):**
+   ```bash
+   npm run tauri build
+   ```
+
 ## 📂 Project Structure
 
 ```text
@@ -61,4 +81,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-**Developed with ❤️ by [Your Name]**
+    **Developed with ❤️ by [Your Name]**
