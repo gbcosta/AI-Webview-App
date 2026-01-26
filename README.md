@@ -2,7 +2,7 @@
 
 **Synapse Hub** is a lightweight desktop application built with Tauri, React, and TypeScript. It acts as a centralized dashboard (WebView wrapper) for the world’s leading Artificial Intelligence platforms, allowing you to switch between tools like ChatGPT, Claude, Gemini, and MidJourney instantly without cluttering your web browser.
 
-[home](/images-readme/home.png)
+![home](/images-readme/home.png)
 
 ## ✨ Features
 
