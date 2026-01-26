@@ -15,10 +15,7 @@ const Home = () => {
         <div
           className={`${isHomeHidden} flex-col h-screen bg-background-primary select-none `}
         >
-          <Header
-            isSettingsMenuActive={isSettingsMenuActive}
-            setIsSettingsMenuActive={setIsSettingsMenuActive}
-          />
+          <Header setIsSettingsMenuActive={setIsSettingsMenuActive} />
           <MainContent />
         </div>
         <SettingsMenu

@@ -5,10 +5,8 @@ import { useSearchbarValue } from "../contexts/useSerchbarValue.tsx";
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 const Header = ({
-  isSettingsMenuActive,
   setIsSettingsMenuActive,
 }: {
-  isSettingsMenuActive: boolean;
   setIsSettingsMenuActive: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
